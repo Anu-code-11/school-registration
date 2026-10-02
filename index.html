@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wonji Didimtu Secondary School | Online Registration</title>
+<meta name="description" content="Register online for Wonji Didimtu Secondary School (ወንጂ ዲዲምቱ ሁለተኛ ደረጃ ትምህርት ቤት).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0b2e6b; --blue-d:#081f4a; --green:#0a8a5a; --green-d:#066b45;
+  --white:#fff; --gray:#f1f4f8; --line:#d3dae4; --text:#14213d; --muted:#4a5a73;
+  --err:#b3261e; --yellow:#f2c230; --red:#d33a2c;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --sans:'Source Sans 3','Noto Sans Ethiopic',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.stripe{height:6px;background:linear-gradient(90deg,var(--green) 33.3%,var(--yellow) 33.3% 66.6%,var(--red) 66.6%)}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:var(--blue);color:var(--white);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;max-width:1100px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:46px;height:46px;flex:none}
+.brand b{display:block;font-family:var(--serif);font-size:1.05rem;line-height:1.2}
+.brand span{display:block;font-size:.85rem;opacity:.85}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{display:block;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.14)}
+#menuBtn{display:none;background:none;border:2px solid rgba(255,255,255,.6);color:#fff;border-radius:6px;padding:6px 12px;font:600 .95rem var(--sans);cursor:pointer}
+@media(max-width:860px){
+  #menuBtn{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--blue-d);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:8px 20px 16px}
+}
+
+/* Hero */
+.hero{background:var(--blue);color:#fff;padding:72px 0 80px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--green);opacity:.28}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.12;max-width:16ch}
+.hero .am{font-size:clamp(1.15rem,3vw,1.7rem);margin:14px 0 20px;color:#bfe9d6;font-weight:600}
+.hero p{max-width:56ch;font-size:1.12rem;opacity:.93;margin-bottom:28px}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--green);color:#fff;font:700 1.05rem var(--sans);padding:14px 30px;border-radius:8px;text-decoration:none;transition:background .15s}
+.btn:hover{background:var(--green-d)}
+.btn.light{background:#fff;color:var(--blue)}
+.btn.light:hover{background:var(--gray)}
+.facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:36px;font-weight:600;font-size:.98rem}
+.facts span{border-left:4px solid var(--yellow);padding-left:10px}
+
+/* Sections */
+section{padding:64px 0}
+section.alt{background:var(--gray)}
+h2{font-family:var(--serif);color:var(--blue);font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:8px}
+.lead{color:var(--muted);max-width:62ch;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px}
+.panel h3{color:var(--blue);font-family:var(--serif);margin-bottom:10px;font-size:1.25rem}
+.panel ul{padding-left:0;list-style:none}
+.panel li{padding:8px 0 8px 30px;border-bottom:1px solid var(--gray);position:relative}
+.panel li:last-child{border:0}
+.panel li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.note{margin-top:14px;font-size:.93rem;color:var(--muted)}
+
+/* Form */
+form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,36px);box-shadow:0 6px 24px rgba(11,46,107,.08)}
+fieldset{border:0;margin-bottom:30px}
+legend{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--blue);padding-bottom:6px;margin-bottom:14px;border-bottom:3px solid var(--green);width:100%}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:16px}
+label{display:block;font-weight:600;font-size:.95rem;margin-bottom:5px}
+label i{color:var(--err);font-style:normal}
+input,select{width:100%;padding:12px;border:2px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--text)}
+input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(11,46,107,.2)}
+input[type=file]{padding:9px;background:var(--gray)}
+.field.bad input,.field.bad select{border-color:var(--err)}
+.msg{display:none;color:var(--err);font-size:.86rem;margin-top:4px;font-weight:600}
+.field.bad .msg{display:block}
+.hint{font-size:.83rem;color:var(--muted);margin-top:4px}
+select:disabled{background:var(--gray);color:var(--muted)}
+.submit{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.submit .btn{min-width:220px}
+.btn.ghost{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+.btn.ghost:hover{background:var(--gray)}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(8,31,74,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
+.modal.show{display:flex}
+.box{background:#fff;border-radius:14px;max-width:460px;width:100%;padding:34px 28px;text-align:center;border-top:8px solid var(--green)}
+.box .ok{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;font-size:2rem;line-height:64px;margin:0 auto 14px}
+.box h3{font-family:var(--serif);color:var(--blue);font-size:1.5rem;margin-bottom:8px}
+.box .ref{display:inline-block;background:var(--gray);border:1px dashed var(--blue);padding:6px 14px;border-radius:6px;font-weight:700;margin:12px 0 20px;letter-spacing:.5px}
+
+/* Footer */
+footer{background:var(--blue-d);color:#dbe4f3;padding:48px 0 0}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;padding-bottom:32px}
+footer h4{color:#fff;font-family:var(--serif);margin-bottom:8px;font-size:1.1rem}
+footer p{margin-bottom:6px}
+footer a{color:#bfe9d6}
+.copy{border-top:1px solid rgba(255,255,255,.18);text-align:center;padding:16px;font-size:.92rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="stripe"></div>
+<header>
+  <div class="bar">
+    <a class="brand" href="#home" aria-label="Wonji Didimtu Secondary School home">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#fff"/>
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#0a8a5a" stroke-width="3"/>
+        <circle cx="32" cy="22" r="7" fill="#f2c230"/>
+        <path d="M10 40c8-4 16-4 22 1 6-5 14-5 22-1v12c-8-4-16-4-22 1-6-5-14-5-22-1z" fill="#0b2e6b"/>
+        <path d="M32 41v12" stroke="#fff" stroke-width="2"/>
+      </svg>
+      <div><b>Wonji Didimtu Secondary School</b><span>ወንጂ ዲዲምቱ ሁለተኛ ደረጃ ትምህርት ቤት</span></div>
+    </a>
+    <button id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About School</a></li>
+        <li><a href="#register">Registration Form</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" style="padding-top:72px">
+  <div class="wrap">
+    <h1>Welcome to Wonji Didimtu Secondary School</h1>
+    <p class="am">ወደ ወንጂ ዲዲምቱ ሁለተኛ ደረጃ ትምህርት ቤት እንኳን በደህና መጡ</p>
+    <p>Quality education for Grades 9 to 12, with registration that takes about ten minutes. Fill in the form, attach your documents, and we will confirm your place.</p>
+    <a class="btn" href="#register">Register Now</a>
+    <div class="facts">
+      <span>Grades 9–12</span>
+      <span>Natural &amp; Social Science streams</span>
+      <span>Register from any phone</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="about">
+  <div class="wrap">
+    <h2>About our school</h2>
+    <p class="lead">Wonji Didimtu Secondary School serves students from Wonji and the surrounding community.</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>Our mission</h3>
+        <p>To give every student a strong academic foundation, good character, and the confidence to continue to higher education or skilled work, and to serve their community and Ethiopia.</p>
+      </div>
+      <div class="panel">
+        <h3>What we offer</h3>
+        <ul>
+          <li>General secondary education, Grades 9 and 10</li>
+          <li>Preparatory education, Grades 11 and 12</li>
+          <li>Natural Science and Social Science streams</li>
+          <li>Guidance and support from qualified teachers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="wrap">
+    <h2>Online Student Registration Form</h2>
+    <p class="lead">Fields marked <b style="color:var(--err)">*</b> are required. Check your details before you submit.</p>
+
+    <form id="regForm" novalidate>
+      <fieldset>
+        <legend>Personal information</legend>
+        <div class="row">
+          <div class="field"><label for="fn">First name <i>*</i></label><input id="fn" name="fn" autocomplete="given-name" required><div class="msg">Enter your first name.</div></div>
+          <div class="field"><label for="mn">Middle name (father's name) <i>*</i></label><input id="mn" name="mn" required><div class="msg">Enter your middle name.</div></div>
+          <div class="field"><label for="ln">Last name (grandfather's name) <i>*</i></label><input id="ln" name="ln" required><div class="msg">Enter your last name.</div></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="gender">Gender <i>*</i></label>
+            <select id="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option></select>
+            <div class="msg">Select your gender.</div></div>
+          <div class="field"><label for="dob">Date of birth <i>*</i></label><input id="dob" type="date" required><div class="msg" id="dobMsg">Enter a valid date of birth.</div></div>
+          <div class="field"><label for="phone">Phone number <i>*</i></label><input id="phone" type="tel" inputmode="tel" placeholder="09XXXXXXXX" autocomplete="tel" required><div class="msg">Enter a valid Ethiopian number, e.g. 0912345678 or +251912345678.</div></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"><div class="msg">Enter a valid email address, or leave this blank.</div></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Academic information</legend>
+        <div class="row">
+          <div class="field"><label for="grade">Grade level <i>*</i></label>
+            <select id="grade" required><option value="">Select grade</option><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option></select>
+            <div class="msg">Select a grade level.</div></div>
+          <div class="field"><label for="stream">Stream <i>*</i></label>
+            <select id="stream" disabled required><option value="">Select a grade first</option></select>
+            <div class="hint">Streams apply to Grades 11 and 12 only.</div>
+            <div class="msg">Select a stream.</div></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="prev">Previous school name <i>*</i></label><input id="prev" required><div class="msg">Enter your previous school.</div></div>
+          <div class="field"><label for="score" id="scoreLbl">National exam result (%) <i>*</i></label><input id="score" type="number" min="0" max="100" step="0.01" inputmode="decimal" required>
+            <div class="hint" id="scoreHint">Grade 8 result for Grade 9; Grade 10 result for Grades 10–12.</div>
+            <div class="msg">Enter a score from 0 to 100.</div></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Parent / guardian information</legend>
+        <div class="row">
+          <div class="field"><label for="gname">Guardian full name <i>*</i></label><input id="gname" required><div class="msg">Enter the guardian's full name.</div></div>
+          <div class="field"><label for="rel">Relationship <i>*</i></label>
+            <select id="rel" required><option value="">Select relationship</option><option>Father</option><option>Mother</option><option>Brother</option><option>Sister</option><option>Uncle</option><option>Aunt</option><option>Other guardian</option></select>
+            <div class="msg">Select the relationship.</div></div>
+          <div class="field"><label for="gphone">Contact phone number <i>*</i></label><input id="gphone" type="tel" inputmode="tel" placeholder="09XXXXXXXX" required><div class="msg">Enter a valid Ethiopian number.</div></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Documents</legend>
+        <div class="row">
+          <div class="field"><label for="transcript">Transcript / report card <i>*</i></label><input id="transcript" type="file" accept=".pdf,.jpg,.jpeg,.png" required><div class="hint">PDF, JPG or PNG, up to 5 MB.</div><div class="msg" id="tMsg">Attach your transcript or report card.</div></div>
+          <div class="field"><label for="photoid">Photo ID <i>*</i></label><input id="photoid" type="file" accept=".pdf,.jpg,.jpeg,.png" required><div class="hint">PDF, JPG or PNG, up to 5 MB.</div><div class="msg" id="pMsg">Attach your photo ID.</div></div>
+        </div>
+        <p class="note">This is a demonstration upload. Files are checked in your browser and are not sent anywhere. Bring the original documents to the school office.</p>
+      </fieldset>
+
+      <div class="submit">
+        <button class="btn" type="submit">Submit registration</button>
+        <button class="btn ghost" type="reset" id="resetBtn">Clear form</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="alt" id="requirements">
+  <div class="wrap">
+    <h2>Registration requirements</h2>
+    <p class="lead">Bring these documents to the school office to complete your registration.</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>Documents to bring</h3>
+        <ul>
+          <li>Grade 8 certificate (for Grade 9) or Grade 10 certificate (for Grades 11–12)</li>
+          <li>Transcript or last report card</li>
+          <li>2 recent passport-size photos</li>
+          <li>Transfer letter from your previous school (transfer students)</li>
+          <li>Photo ID of the student, or a kebele ID of the guardian</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Before you apply</h3>
+        <ul>
+          <li>Use a phone number the school can call</li>
+          <li>Write your name as it appears on your certificate</li>
+          <li>Grade 11–12 applicants choose a stream: Natural Science or Social Science</li>
+          <li>Keep your reference number after you submit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>Wonji Didimtu Secondary School</h4><p>ወንጂ ዲዲምቱ ሁለተኛ ደረጃ ትምህርት ቤት</p><p>Quality education, easy registration.</p></div>
+      <div><h4>Contact</h4>
+        <p>Location: Wonji, Ethiopia</p>
+        <p>Phone: <a href="tel:+251000000000">+251 9XX XXX XXX</a></p>
+        <p>Email: <a href="mailto:info@wonjididimtu.edu.et">info@wonjididimtu.edu.et</a></p>
+        <p class="hint" style="color:#9fb2d0">Replace these placeholder details with the school's real contacts.</p></div>
+      <div><h4>Office hours</h4><p>Monday to Friday</p><p>8:00 AM – 5:00 PM</p></div>
+    </div>
+  </div>
+  <div class="copy">© 2026 Wonji Didimtu Secondary School. All Rights Reserved.</div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box">
+    <div class="ok" aria-hidden="true">✓</div>
+    <h3 id="mTitle">Registration submitted</h3>
+    <p id="mText"></p>
+    <div class="ref" id="mRef"></div>
+    <p style="font-size:.93rem;color:var(--muted);margin-bottom:18px">Bring this number and your original documents to the school office.</p>
+    <button class="btn" id="mClose">Close</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const form = $('regForm');
+
+  // Mobile menu
+  const nav = $('nav'), menuBtn = $('menuBtn');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
+
+  // Date limits: ages roughly 10 to 30
+  const today = new Date(), y = today.getFullYear();
+  $('dob').max = (y - 10) + '-12-31';
+  $('dob').min = (y - 30) + '-01-01';
+
+  // Stream depends on grade
+  $('grade').addEventListener('change', () => {
+    const g = $('grade').value, s = $('stream');
+    if (g === 'Grade 11' || g === 'Grade 12') {
+      s.innerHTML = '<option value="">Select stream</option><option>Natural Science</option><option>Social Science</option>';
+      s.disabled = false;
+    } else {
+      s.innerHTML = '<option value="N/A">N/A (Grades 9–10)</option>';
+      s.disabled = true;
+      setBad(s, false);
+    }
+    $('scoreLbl').firstChild.nodeValue = g === 'Grade 9' ? 'Grade 8 national exam result (%) ' : g ? 'Grade 10 national exam result (%) ' : 'National exam result (%) ';
+  });
+
+  const phoneOk = v => /^(?:\+251|251|0)?[79]\d{8}$/.test(v.replace(/[\s-]/g, ''));
+  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  const fileOk = f => f && f.size <= 5 * 1024 * 1024 && /\.(pdf|jpe?g|png)$/i.test(f.name);
+
+  function setBad(el, bad){ el.closest('.field').classList.toggle('bad', bad); el.setAttribute('aria-invalid', bad); }
+
+  const rules = {
+    fn: v => v.trim().length >= 2,
+    mn: v => v.trim().length >= 2,
+    ln: v => v.trim().length >= 2,
+    gender: v => v !== '',
+    dob: v => { if (!v) return false; const d = new Date(v); return d >= new Date($('dob').min) && d <= new Date($('dob').max); },
+    phone: phoneOk,
+    email: v => v === '' || emailOk(v),
+    grade: v => v !== '',
+    stream: v => v !== '',
+    prev: v => v.trim().length >= 3,
+    score: v => v !== '' && +v >= 0 && +v <= 100,
+    gname: v => v.trim().split(/\s+/).length >= 2,
+    rel: v => v !== '',
+    gphone: phoneOk
+  };
+
+  function check(id){
+    const el = $(id), ok = rules[id](el.value);
+    setBad(el, !ok);
+    return ok;
+  }
+  function checkFile(id, msgId, label){
+    const el = $(id), f = el.files[0];
+    let ok = fileOk(f);
+    if (!f) $(msgId).textContent = 'Attach your ' + label + '.';
+    else if (!ok) $(msgId).textContent = 'Use a PDF, JPG or PNG file up to 5 MB.';
+    setBad(el, !ok);
+    return ok;
+  }
+
+  Object.keys(rules).forEach(id => {
+    const el = $(id);
+    el.addEventListener('blur', () => check(id));
+    el.addEventListener('input', () => { if (el.closest('.field').classList.contains('bad')) check(id); });
+  });
+  $('gname').closest('.field').querySelector('.msg').textContent = 'Enter the guardian\'s first and last name.';
+  $('dob').addEventListener('change', () => check('dob'));
+  $('transcript').addEventListener('change', () => checkFile('transcript','tMsg','transcript or report card'));
+  $('photoid').addEventListener('change', () => checkFile('photoid','pMsg','photo ID'));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const results = Object.keys(rules).map(check);
+    results.push(checkFile('transcript','tMsg','transcript or report card'));
+    results.push(checkFile('photoid','pMsg','photo ID'));
+    const firstBad = form.querySelector('.field.bad input, .field.bad select');
+    if (firstBad) { firstBad.focus(); return; }
+
+    const ref = 'WDSS-' + y + '-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    $('mText').textContent = 'Thank you, ' + $('fn').value.trim() + '. Your application for ' + $('grade').value + ' has been received.';
+    $('mRef').textContent = 'Reference: ' + ref;
+    $('modal').classList.add('show');
+    $('mClose').focus();
+    // To collect real submissions, send the form data to a service such as Formspree or Google Apps Script here.
+  });
+
+  function closeModal(){
+    $('modal').classList.remove('show');
+    form.reset();
+    $('grade').dispatchEvent(new Event('change'));
+    $('stream').innerHTML = '<option value="">Select a grade first</option>';
+    $('stream').disabled = true;
+    document.querySelectorAll('.field.bad').forEach(f => f.classList.remove('bad'));
+  }
+  $('mClose').addEventListener('click', closeModal);
+  $('modal').addEventListener('click', e => { if (e.target === $('modal')) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('modal').classList.contains('show')) closeModal(); });
+  $('resetBtn').addEventListener('click', () => setTimeout(() => {
+    $('stream').innerHTML = '<option value="">Select a grade first</option>'; $('stream').disabled = true;
+    document.querySelectorAll('.field.bad').forEach(f => f.classList.remove('bad'));
+  }, 0));
+})();
+</script>
+</body>
+</html>
